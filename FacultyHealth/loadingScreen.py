@@ -13,8 +13,8 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 x = (screen_width - window_width) // 2
 y = (screen_height - window_height) // 2
-
 root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+root.overrideredirect(True)
 
 canvas = Canvas(root, width=360, height=344, highlightthickness=0) 
 canvas.pack()
@@ -37,9 +37,9 @@ progress = Progressbar(root, orient=HORIZONTAL,
                        style="red.Horizontal.TProgressbar")
 progress.place(relx=0.5, rely=0.93, anchor="center")
 
-def open_base():
+def openLoginAdmin():
     root.withdraw() 
-    os.system("python login_staff.py")
+    os.system("python login_admin.py")
     root.destroy()
 
 def load():
@@ -49,7 +49,7 @@ def load():
         progress_label.config(text=txt)
         root.after(600, load)
     else:
-        open_base()
+        openLoginAdmin()
 
 load()
 

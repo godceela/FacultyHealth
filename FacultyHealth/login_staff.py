@@ -11,8 +11,8 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 x = (screen_width - window_width) // 2
 y = (screen_height - window_height) // 2
-
 root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+root.overrideredirect(True)
 
 #side image
 canvas = Canvas(root, width=515, height=665, highlightthickness=0) 
@@ -76,28 +76,28 @@ message_label = Label(root, text="", bg="#DFEEED")
 message_label.config(font=("Microsoft JhengHei ", 11))
 message_label.place(relx=0.78, rely=0.63, anchor=CENTER)
 
-def toggle_password_visibility():
+def passVisibility():
     if password_entry['show'] == '':
         password_entry.configure(show='•')
-        show_password_button.configure(text='Show password')
+        btnShow.configure(text='Show password')
     else:
         password_entry.configure(show='')
-        show_password_button.configure(text='Hide password')
+        btnShow.configure(text='Hide password')
 
-show_password_button = Button(root, text='Show password', command=toggle_password_visibility,
+btnShow = Button(root, text='Show password', command=passVisibility,
                               bg='#94A2A7', fg='#ffffff')
-show_password_button.config(font=('Microsoft JhengHei', 8),cursor="hand2")
-show_password_button.place(relx=0.778, rely=0.49, anchor=CENTER)
+btnShow.config(font=('Microsoft JhengHei', 8),cursor="hand2")
+btnShow.place(relx=0.778, rely=0.49, anchor=CENTER)
 
-def reset_entries():
+def reset():
     username_entry.delete(0, END)
     password_entry.delete(0, END)
     message_label.config(text="", fg="#000000")
 
-reset_button = Button(root, text="Reset", command=reset_entries, 
+btnReset = Button(root, text="Reset", command=reset, 
                       bg="#497687", fg="#ffffff")
-reset_button.config(font=("Microsoft JhengHei", 11),cursor="hand2")
-reset_button.place(relx=0.75, rely=0.58, anchor=CENTER)
+btnReset.config(font=("Microsoft JhengHei", 11),cursor="hand2")
+btnReset.place(relx=0.75, rely=0.58, anchor=CENTER)
 
 def open_adminLogin():
     root.withdraw() 
