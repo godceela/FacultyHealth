@@ -2,7 +2,6 @@ from tkinter import *
 import os
 
 root = Tk()
-root.title('Admin Login') #ChangeFormName
 root.config(highlightthickness=0, background="#DFEEED")
 
 window_width = 1250
@@ -13,6 +12,19 @@ x = (screen_width - window_width) // 2
 y = (screen_height - window_height) // 2
 root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 root.overrideredirect(True)
+
+#Exit Form
+def exitForm():
+    root.withdraw() 
+    root.destroy() 
+
+exitLogo = Canvas(root, width=30, height=30, highlightthickness=0) 
+exitLogo.pack()
+imgExitLogo = PhotoImage(file='images//exit.png')
+exitLogo.create_image(15, 15, image=imgExitLogo, anchor=CENTER)
+exitLogo.configure(background='#DFEEED', cursor="hand2")
+exitLogo.place(relx=0.97, rely=0.009)
+exitLogo.bind("<Button-1>", lambda event: exitForm())
 
 #side image
 canvas = Canvas(root, width=515, height=665, highlightthickness=0) 

@@ -40,18 +40,29 @@ cvsbrLogo.configure(background='#FBF0D7')
 cvsbrLogo.place(relx=0.03, rely=0.043)
 
 # home icon/button
+def homeBtn():
+    root.withdraw() 
+    os.system('python homepage.py')
+    root.destroy() 
+
 cvHomeIC = Canvas(root, width=50, height=50, highlightthickness=0) 
 cvHomeIC.pack()
-imgHome = PhotoImage(file='images//home2.png')
+imgHome = PhotoImage(file='images//home.png')
 cvHomeIC.create_image(25, 25, image=imgHome, anchor=CENTER)
 cvHomeIC.configure(background='#FBF0D7')
 cvHomeIC.place(relx=0.0069, rely=0.17)
 
-home_label = Label(root, text="Home", bg="#FBF0D7", fg="#1E3037")
+home_label = Label(root, text="Home", bg="#FBF0D7", fg="#497687")
 home_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 home_label.place(relx=0.065, rely=0.2, anchor=CENTER)
+home_label.bind("<Button-1>", lambda event: homeBtn())
 
 # patient icon/button
+def ptntBtn():
+    root.withdraw() 
+    os.system('python patient.py')
+    root.destroy() 
+
 cvPtntIC = Canvas(root, width=50, height=50, highlightthickness=0) 
 cvPtntIC.pack()
 imgPtnt = PhotoImage(file='images//patient.png')
@@ -62,20 +73,27 @@ cvPtntIC.place(relx=0.0069, rely=0.27)
 patient_label = Label(root, text="Patient", bg="#FBF0D7", fg="#497687")
 patient_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 patient_label.place(relx=0.065, rely=0.3, anchor=CENTER)
+patient_label.bind("<Button-1>", lambda event: ptntBtn())
+
 
 # staff icon/button
 cvStaffIC = Canvas(root, width=50, height=50, highlightthickness=0) 
 cvStaffIC.pack()
-imgStaff = PhotoImage(file='images//staff.png')
+imgStaff = PhotoImage(file='images//staff2.png')
 cvStaffIC.create_image(25, 25, image=imgStaff, anchor=CENTER)
 cvStaffIC.configure(background='#FBF0D7')
 cvStaffIC.place(relx=0.0069, rely=0.37)
 
-staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#497687")
+staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#1E3037")
 staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
 
 # prescription icon/button
+def presBtn():
+    root.withdraw() 
+    os.system('python prescription.py')
+    root.destroy() 
+
 cvPresIC = Canvas(root, width=50, height=50, highlightthickness=0) 
 cvPresIC.pack()
 imgPres = PhotoImage(file='images//prescription.png')
@@ -86,8 +104,14 @@ cvPresIC.place(relx=0.007, rely=0.47)
 pres_label = Label(root, text="Prescription", bg="#FBF0D7", fg="#497687")
 pres_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 pres_label.place(relx=0.078, rely=0.5, anchor=CENTER)
+pres_label.bind("<Button-1>", lambda event: presBtn())
 
 # inventory icon/button
+def invBtn():
+    root.withdraw() 
+    os.system('python inventory.py')
+    root.destroy() 
+
 cvinventoryIC = Canvas(root, width=50, height=50, highlightthickness=0) 
 cvinventoryIC.pack()
 imgInv = PhotoImage(file='images//inventory.png')
@@ -98,6 +122,7 @@ cvinventoryIC.place(relx=0.007, rely=0.57)
 inventory_label = Label(root, text="Inventory", bg="#FBF0D7", fg="#497687")
 inventory_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 inventory_label.place(relx=0.072, rely=0.6, anchor=CENTER)
+inventory_label.bind("<Button-1>", lambda event: invBtn())
 
 # logout icon/button
 def logoutBtn():

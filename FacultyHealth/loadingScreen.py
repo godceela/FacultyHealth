@@ -4,7 +4,6 @@ from tkinter.ttk import Progressbar
 import os
 
 root = Tk()
-root.title('Loading Page')
 root.config(highlightthickness=0, background="#DFEEED")
 
 window_width = 360
