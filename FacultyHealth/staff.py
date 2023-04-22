@@ -88,24 +88,6 @@ staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#1E3037")
 staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
 
-# prescription icon/button
-def presBtn():
-    root.withdraw() 
-    os.system('python prescription.py')
-    root.destroy() 
-
-cvPresIC = Canvas(root, width=50, height=50, highlightthickness=0) 
-cvPresIC.pack()
-imgPres = PhotoImage(file='images//prescription.png')
-cvPresIC.create_image(25, 25, image=imgPres, anchor=CENTER)
-cvPresIC.configure(background='#FBF0D7')
-cvPresIC.place(relx=0.007, rely=0.47)
-
-pres_label = Label(root, text="Prescription", bg="#FBF0D7", fg="#497687")
-pres_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-pres_label.place(relx=0.078, rely=0.5, anchor=CENTER)
-pres_label.bind("<Button-1>", lambda event: presBtn())
-
 # inventory icon/button
 def invBtn():
     root.withdraw() 
@@ -117,11 +99,11 @@ cvinventoryIC.pack()
 imgInv = PhotoImage(file='images//inventory.png')
 cvinventoryIC.create_image(25, 25, image=imgInv, anchor=CENTER)
 cvinventoryIC.configure(background='#FBF0D7') 
-cvinventoryIC.place(relx=0.007, rely=0.57)
+cvinventoryIC.place(relx=0.007, rely=0.47)
 
 inventory_label = Label(root, text="Inventory", bg="#FBF0D7", fg="#497687")
 inventory_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-inventory_label.place(relx=0.072, rely=0.6, anchor=CENTER)
+inventory_label.place(relx=0.078, rely=0.5, anchor=CENTER)
 inventory_label.bind("<Button-1>", lambda event: invBtn())
 
 # logout icon/button
@@ -141,5 +123,132 @@ logout_label = Label(root, text="Logout", bg="#FBF0D7", fg="#497687")
 logout_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 logout_label.place(relx=0.065, rely=0.91, anchor=CENTER) 
 logout_label.bind("<Button-1>", lambda event: logoutBtn())
+
+#main screen
+# STAFF AND NURSE INFO
+infoPanel = Frame(root, bg="#FBF0D7")
+infoPanel.place(x=210, y=48, width=1000, height=250)
+
+ptntRec = Label(infoPanel, text="STAFF'S INFORMATION", 
+                font=("Microsoft JhengHei", 14, "bold"), bg="#FBF0D7", fg="#497687")
+ptntRec.grid(row=0, column=0, columnspan=4, padx=20, pady=10, sticky="nsew")
+
+idLabel = Label(infoPanel, text="Identification #", font=("Microsoft JhengHei", 11, "bold"), 
+                   bg="#FBF0D7", fg="#497687")
+idLabel.grid(row=1, column=0, padx=20, pady=10, sticky="w")
+idEntry = Entry(infoPanel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
+idEntry.grid(row=1, column=1, padx=20, pady=10)
+
+nameLabel = Label(infoPanel, text="Full Name", font=("Microsoft JhengHei", 11, "bold"), 
+                       bg="#FBF0D7", fg="#497687")
+nameLabel.grid(row=2, column=0, padx=20, pady=10, sticky="w")
+nameEntry = Entry(infoPanel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
+nameEntry.grid(row=2, column=1, padx=20, pady=10)
+
+contLabel = Label(infoPanel, text="Contact #", font=("Microsoft JhengHei", 11, "bold"), 
+                  bg="#FBF0D7", fg="#497687")
+contLabel.grid(row=3, column=0, padx=20, pady=10, sticky="w")
+contEntry = Entry(infoPanel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
+contEntry.grid(row=3, column=1, padx=20, pady=10)
+
+addressLabel = Label(infoPanel, text="Address", font=("Microsoft JhengHei", 11, "bold"), 
+                    bg="#FBF0D7", fg="#497687")
+addressLabel.grid(row=4, column=0, padx=20, pady=10, sticky="w")
+addressEntry = Entry(infoPanel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
+addressEntry.grid(row=4, column=1, padx=1, pady=10)
+
+sexLabel = Label(infoPanel, text="Sex", font=("Microsoft JhengHei", 11, "bold"), 
+                      bg="#FBF0D7", fg="#497687")
+sexLabel.grid(row=1, column=2, padx=20, pady=10, sticky="w")
+sexCmBox = Combobox(infoPanel, font=("Microsoft JhengHei", 11), 
+                            values=["Male", "Female"], width=30)
+sexCmBox.grid(row=1, column=3, padx=10, pady=10)
+
+usnLabel = Label(infoPanel, text="Username", font=("Microsoft JhengHei", 11, "bold"), 
+                    bg="#FBF0D7", fg="#497687")
+usnLabel.grid(row=2, column=2, padx=20, pady=10, sticky="w")
+usnEntry = Entry(infoPanel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
+usnEntry.grid(row=2, column=3, padx=20, pady=10)
+
+noteLabel = Label(infoPanel, text="*Username and password will serve as staff's login info", 
+                 font=("Microsoft JhengHei", 8, "italic"), bg="#FBF0D7", fg="gray")
+noteLabel.place(relx=0.769, rely=0.75, anchor=CENTER)
+
+passLabel = Label(infoPanel, text="Password", font=("Microsoft JhengHei", 11, "bold"), 
+                    bg="#FBF0D7", fg="#497687")
+passLabel.place(relx=0.545, rely=0.65, anchor=CENTER)
+passEntry = Entry(infoPanel, show="•", font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=32)
+passEntry.place(relx=0.773, rely=0.65, anchor=CENTER)
+
+def passVisibility():
+    if passEntry['show'] == '':
+        passEntry.configure(show='•')
+        btnShow.configure(text='Show')
+    else:
+        passEntry.configure(show='')
+        btnShow.configure(text='Hide')
+
+btnShow = Button(infoPanel, text='Show', command=passVisibility,
+                              bg='#497687', fg='#ffffff')
+btnShow.config(font=("Microsoft JhengHei", 7),cursor="hand2")
+btnShow.place(relx=0.905, rely=0.65, anchor=CENTER)
+
+def reset():
+    idEntry.delete(0, END)
+    nameEntry.delete(0, END)
+    passEntry.delete(0, END)
+    usnEntry.delete(0, END)
+    addressEntry.delete(0, END)
+    contEntry.delete(0, END)
+    sexCmBox.set("")
+
+btnReset = Button(root, text="Reset", command=reset, 
+                      bg="#497687", fg="#ffffff")
+btnReset.config(font=("Microsoft JhengHei", 11),cursor="hand2")
+btnReset.place(relx=0.817, rely=0.4, anchor=CENTER)
+
+def delete():
+    #tempo-command
+    idEntry.delete(0, END)
+    nameEntry.delete(0, END)
+    passEntry.delete(0, END)
+    usnEntry.delete(0, END)
+    addressEntry.delete(0, END)
+    sexCmBox.set("")
+
+btnNew = Button(root, text="Delete", command=delete, 
+                      bg="#497687", fg="#ffffff")
+btnNew.config(font=("Microsoft JhengHei", 11),cursor="hand2")
+btnNew.place(relx=0.865, rely=0.4, anchor=CENTER)
+
+def new():
+    #tempo-command
+    idEntry.delete(0, END)
+    nameEntry.delete(0, END)
+    passEntry.delete(0, END)
+    usnEntry.delete(0, END)
+    addressEntry.delete(0, END)
+    sexCmBox.set("")
+
+btnSave = Button(root, text="New", command=new, 
+                      bg="#497687", fg="#ffffff")
+btnSave.config(font=("Microsoft JhengHei", 11),cursor="hand2")
+btnSave.place(relx=0.91, rely=0.4, anchor=CENTER)
+
+def add():
+    #tempo-command
+    idEntry.delete(0, END)
+    nameEntry.delete(0, END)
+    passEntry.delete(0, END)
+    usnEntry.delete(0, END)
+    addressEntry.delete(0, END)
+    sexCmBox.set("")
+
+btnSave = Button(root, text="Add", command=add, 
+                      bg="#497687", fg="#ffffff")
+btnSave.config(font=("Microsoft JhengHei", 11),cursor="hand2")
+btnSave.place(relx=0.95, rely=0.4, anchor=CENTER)
+
 
 root.mainloop()

@@ -137,13 +137,13 @@ patientID.place(relx=0.2, rely=0.059, anchor=CENTER)
 
 patientID_entry = Entry(root, bg="#FFFFFF", fg="#497687", width=29)
 patientID_entry.config(font=("Microsoft JhengHei", 13),cursor="hand2")
-patientID_entry.place(relx=0.387, rely=0.059, anchor=CENTER)
+patientID_entry.place(relx=0.395, rely=0.059, anchor=CENTER)
 
 #Patient Record
 ptntRec_panel = Frame(root, bg="#FBF0D7")
 ptntRec_panel.place(x=210, y=72, width=450, height=350)
 
-ptntRec = Label(ptntRec_panel, text="Patient Record", 
+ptntRec = Label(ptntRec_panel, text="PATIENT RECORD", 
                 font=("Microsoft JhengHei", 14, "bold"), bg="#FBF0D7", fg="#497687")
 ptntRec.grid(row=0, column=0, columnspan=2, padx=20, pady=10, sticky="nsew")
 
@@ -171,7 +171,7 @@ age_label.grid(row=4, column=0, padx=20, pady=10, sticky="w")
 age_entry = Entry(ptntRec_panel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
 age_entry.grid(row=4, column=1, padx=20, pady=10)
 
-phone_label = Label(ptntRec_panel, text="Phone", font=("Microsoft JhengHei", 11, "bold"), 
+phone_label = Label(ptntRec_panel, text="Contact #", font=("Microsoft JhengHei", 11, "bold"), 
                     bg="#FBF0D7", fg="#497687")
 phone_label.grid(row=5, column=0, padx=20, pady=10, sticky="w")
 phone_entry = Entry(ptntRec_panel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
@@ -188,7 +188,7 @@ marital_combobox.grid(row=6, column=1, padx=1, pady=10)
 physExam_panel = Frame(root, bg="#FBF0D7")
 physExam_panel.place(x=210, y=443, width=450, height=240)
 
-ptntRec = Label(physExam_panel, text="Physical Exam", font=("Microsoft JhengHei", 14, "bold"), 
+ptntRec = Label(physExam_panel, text="PHYSICAL EXAM", font=("Microsoft JhengHei", 14, "bold"), 
                 bg="#FBF0D7", fg="#497687")
 ptntRec.grid(row=0, column=0, columnspan=2, padx=20, pady=10, sticky="nsew")
 
@@ -283,6 +283,25 @@ btnSave = Button(root, text="Save", command=save,
                       bg="#497687", fg="#ffffff")
 btnSave.config(font=("Microsoft JhengHei", 11),cursor="hand2")
 btnSave.place(relx=0.278, rely=0.91, anchor=CENTER)
+
+def sensor():
+    #tempo-command
+    patientID_entry.delete(0, END)
+    name_entry.delete(0, END)
+    address_entry.delete(0, END)
+    birthday_entry.delete(0, END)
+    age_entry.delete(0, END)
+    phone_entry.delete(0, END)
+    marital_combobox.set("")
+    height_entry.delete(0, END)
+    weight_entry.delete(0, END)
+    pr_entry.delete(0, END)
+    bt_entry.delete(0, END)
+
+btnSensor = Button(root, text="Sensor", command=sensor, 
+                      bg="#b12a2a", fg="#ffffff")
+btnSensor.config(font=("Microsoft JhengHei", 11),cursor="hand2")
+btnSensor.place(relx=0.503, rely=0.91, anchor=CENTER)
 
 #Login - Save nurse info ------------
 loginPanel = Frame(root, bg="#FBF0D7")
