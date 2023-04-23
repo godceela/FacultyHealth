@@ -54,7 +54,7 @@ cvHomeIC.place(relx=0.0069, rely=0.17)
 
 home_label = Label(root, text="Home", bg="#FBF0D7", fg="#497687")
 home_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-home_label.place(relx=0.065, rely=0.2, anchor=CENTER)
+home_label.place(relx=0.07, rely=0.2, anchor=CENTER)
 home_label.bind("<Button-1>", lambda event: homeBtn())
 
 # patient icon/button
@@ -72,7 +72,7 @@ cvPtntIC.place(relx=0.0069, rely=0.27)
 
 patient_label = Label(root, text="Patient", bg="#FBF0D7", fg="#497687")
 patient_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-patient_label.place(relx=0.065, rely=0.3, anchor=CENTER)
+patient_label.place(relx=0.071, rely=0.3, anchor=CENTER)
 patient_label.bind("<Button-1>", lambda event: ptntBtn())
 
 
@@ -86,7 +86,7 @@ cvStaffIC.place(relx=0.0069, rely=0.37)
 
 staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#1E3037")
 staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
+staff_label.place(relx=0.0648, rely=0.4, anchor=CENTER)
 
 # inventory icon/button
 def invBtn():
@@ -170,7 +170,7 @@ usnLabel.grid(row=2, column=2, padx=20, pady=10, sticky="w")
 usnEntry = Entry(infoPanel, font=("Microsoft JhengHei", 11), fg="#497687", width=32)
 usnEntry.grid(row=2, column=3, padx=20, pady=10)
 
-noteLabel = Label(infoPanel, text="*Username and password will serve as staff's login info", 
+noteLabel = Label(infoPanel, text="*Username and password will serve as staff's login info.", 
                  font=("Microsoft JhengHei", 8, "italic"), bg="#FBF0D7", fg="gray")
 noteLabel.place(relx=0.769, rely=0.75, anchor=CENTER)
 

@@ -41,7 +41,7 @@ cvHomeIC.place(relx=0.0069, rely=0.17)
 
 home_label = Label(root, text="Home", bg="#FBF0D7", fg="#497687")
 home_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-home_label.place(relx=0.065, rely=0.2, anchor=CENTER)
+home_label.place(relx=0.07, rely=0.2, anchor=CENTER)
 home_label.bind("<Button-1>", lambda event: homeBtn())
 
 # patient icon/button
@@ -54,7 +54,7 @@ cvPtntIC.place(relx=0.0069, rely=0.27)
 
 patient_label = Label(root, text="Patient", bg="#FBF0D7", fg="#1E3037")
 patient_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-patient_label.place(relx=0.065, rely=0.3, anchor=CENTER)
+patient_label.place(relx=0.071, rely=0.3, anchor=CENTER)
 
 # staff icon/button
 def staffBtn():
@@ -71,7 +71,7 @@ cvStaffIC.place(relx=0.0069, rely=0.37)
 
 staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#497687")
 staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
+staff_label.place(relx=0.0648, rely=0.4, anchor=CENTER)
 staff_label.bind("<Button-1>", lambda event: staffBtn())
 
 # inventory icon/button
@@ -289,7 +289,7 @@ btnSensor.place(relx=0.5, rely=0.91, anchor=CENTER)
 loginPanel = Frame(root, bg="#FBF0D7")
 loginPanel.place(x=680, y=443, width=530, height=240)
 
-login = Label(loginPanel, text="Login", font=("Microsoft JhengHei", 14, "bold"), 
+login = Label(loginPanel, text="LOGIN", font=("Microsoft JhengHei", 14, "bold"), 
               bg="#FBF0D7", fg="#497687")
 login.place(relx=0.5, rely=0.1, anchor="center")
 
@@ -299,6 +299,7 @@ def login():
 
     if username == "username" and password == "1234":
         message_label.config(text="Login successful!", fg="green")
+        loginPass_entry.delete(0, END)
     else:
         message_label.config(text="Login failed. Please try again.", fg="#b12a2a")
 

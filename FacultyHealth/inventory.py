@@ -54,7 +54,7 @@ cvHomeIC.place(relx=0.0069, rely=0.17)
 
 home_label = Label(root, text="Home", bg="#FBF0D7", fg="#497687")
 home_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-home_label.place(relx=0.065, rely=0.2, anchor=CENTER)
+home_label.place(relx=0.07, rely=0.2, anchor=CENTER)
 home_label.bind("<Button-1>", lambda event: homeBtn())
 
 # patient icon/button
@@ -72,9 +72,8 @@ cvPtntIC.place(relx=0.0069, rely=0.27)
 
 patient_label = Label(root, text="Patient", bg="#FBF0D7", fg="#497687")
 patient_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-patient_label.place(relx=0.065, rely=0.3, anchor=CENTER)
+patient_label.place(relx=0.071, rely=0.3, anchor=CENTER)
 patient_label.bind("<Button-1>", lambda event: ptntBtn())
-
 
 # staff icon/button
 def staffBtn():
@@ -91,7 +90,7 @@ cvStaffIC.place(relx=0.0069, rely=0.37)
 
 staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#497687")
 staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
+staff_label.place(relx=0.0648, rely=0.4, anchor=CENTER)
 staff_label.bind("<Button-1>", lambda event: staffBtn())
 
 # inventory icon/button
@@ -129,5 +128,63 @@ logout_label = Label(root, text="Logout", bg="#FBF0D7", fg="#497687")
 logout_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 logout_label.place(relx=0.065, rely=0.91, anchor=CENTER) 
 logout_label.bind("<Button-1>", lambda event: logoutBtn())
+
+#Medicine Record
+medicinePan = Frame(root, bg="#FBF0D7")
+medicinePan.place(x=210, y=39, width=500, height=350)
+
+medListLab = Label(medicinePan, text="MEDICINE LIST", 
+                font=("Microsoft JhengHei", 14, "bold"), bg="#FBF0D7", fg="#497687")
+medListLab.place(relx=0.5, rely=0.07, anchor="center")
+
+idLab = Label(medicinePan, text="Identification #", font=("Microsoft JhengHei", 11, "bold"), 
+                    bg="#FBF0D7", fg="#497687")
+idLab.place(relx=0.04, rely=0.195, anchor=W)
+idEntry = Entry(medicinePan, font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=30)
+idEntry.place(relx=0.663, rely=0.195, anchor=CENTER)
+
+prodNameLab = Label(medicinePan, text="Product Name", font=("Microsoft JhengHei", 11, "bold"), 
+                      bg="#FBF0D7", fg="#497687")
+prodNameLab.place(relx=0.04, rely=0.31, anchor=W)
+prodNameEnt = Entry(medicinePan, font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=30)
+prodNameEnt.place(relx=0.663, rely=0.31, anchor=CENTER)
+
+qtyLabel = Label(medicinePan, text="Quantity Left", font=("Microsoft JhengHei", 11, "bold"), 
+                       bg="#FBF0D7", fg="#497687")
+qtyLabel.place(relx=0.04, rely=0.42, anchor=W)
+qtyEntry = Entry(medicinePan, font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=30)
+qtyEntry.place(relx=0.663, rely=0.42, anchor=CENTER)
+
+#Equip Record
+equipPan = Frame(root, bg="#FBF0D7")
+equipPan.place(x=719, y=39, width=480, height=350)
+
+eqLab = Label(equipPan, text="MEDICAL EQUIPMENTS AVAILABLE", 
+                font=("Microsoft JhengHei", 14, "bold"), bg="#FBF0D7", fg="#497687")
+eqLab.place(relx=0.5, rely=0.07, anchor="center")
+
+idLab = Label(equipPan, text="Identification #", font=("Microsoft JhengHei", 11, "bold"), 
+                    bg="#FBF0D7", fg="#497687")
+idLab.place(relx=0.04, rely=0.195, anchor=W)
+idEntry = Entry(equipPan, font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=28)
+idEntry.place(relx=0.663, rely=0.195, anchor=CENTER)
+
+prodNameLab = Label(equipPan, text="Equipment Name", font=("Microsoft JhengHei", 11, "bold"), 
+                      bg="#FBF0D7", fg="#497687")
+prodNameLab.place(relx=0.04, rely=0.31, anchor=W)
+prodNameEnt = Entry(equipPan, font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=28)
+prodNameEnt.place(relx=0.663, rely=0.31, anchor=CENTER)
+
+qtyLabel = Label(equipPan, text="Quantity", font=("Microsoft JhengHei", 11, "bold"), 
+                       bg="#FBF0D7", fg="#497687")
+qtyLabel.place(relx=0.04, rely=0.42, anchor=W)
+qtyEntry = Entry(equipPan, font=("Microsoft JhengHei", 11), 
+                        fg="#497687", width=28)
+qtyEntry.place(relx=0.663, rely=0.42, anchor=CENTER)
 
 root.mainloop()

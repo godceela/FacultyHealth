@@ -49,7 +49,7 @@ cvHomeIC.place(relx=0.0069, rely=0.17)
 
 home_label = Label(root, text="Home", bg="#FBF0D7", fg="#1E3037")
 home_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-home_label.place(relx=0.065, rely=0.2, anchor=CENTER)
+home_label.place(relx=0.07, rely=0.2, anchor=CENTER)
 
 # patient icon/button
 def ptntBtn():
@@ -66,7 +66,7 @@ cvPtntIC.place(relx=0.0069, rely=0.27)
 
 patient_label = Label(root, text="Patient", bg="#FBF0D7", fg="#497687")
 patient_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-patient_label.place(relx=0.065, rely=0.3, anchor=CENTER)
+patient_label.place(relx=0.071, rely=0.3, anchor=CENTER)
 patient_label.bind("<Button-1>", lambda event: ptntBtn())
 
 # staff icon/button
@@ -84,7 +84,7 @@ cvStaffIC.place(relx=0.0069, rely=0.37)
 
 staff_label = Label(root, text="Staff", bg="#FBF0D7", fg="#497687")
 staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
+staff_label.place(relx=0.0648, rely=0.4, anchor=CENTER)
 staff_label.bind("<Button-1>", lambda event: staffBtn())
 
 # inventory icon/button
@@ -123,6 +123,13 @@ logout_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 logout_label.place(relx=0.065, rely=0.91, anchor=CENTER) 
 logout_label.bind("<Button-1>", lambda event: logoutBtn())
 
+# HOVER EFFECTS 
+def txtEnter(e):
+    e.widget.config(font=("Microsoft JhengHei", 11, "bold"), fg="#b12a2a")
+
+def txtLeave(e):
+    e.widget.config(font=("Microsoft JhengHei", 10, "bold"), fg="#274B58")
+
 #registered patient
 regPtsPan = Frame(root, bg="#F4E7CA")
 regPtsPan.place(x=707, y=37, width=500, height=210)
@@ -134,9 +141,11 @@ regPtsNum = Label(regPtsPan, text="00", font=("Microsoft JhengHei", 22, "bold"),
 regPtsNum.place(relx=0.12, rely=0.38, anchor="center")
 
 regLink = Label(regPtsPan, text="「View Patients」", font=("Microsoft JhengHei", 10, "bold"), 
-              bg="#F4E7CA", fg="#274B58")
+              bg="#F4E7CA", fg="#274B58", cursor="hand2")
 regLink.place(relx=0.83, rely=0.83, anchor="center")
 regLink.bind("<Button-1>", lambda event: ptntBtn())
+regLink.bind("<Enter>", txtEnter)
+regLink.bind("<Leave>", txtLeave)
 
 #staff count
 staffPanel = Frame(root, bg="#FBF0D7")
@@ -144,13 +153,18 @@ staffPanel.place(x=200, y=37, width=500, height=210)
 staffPLab = Label(staffPanel, text="Registered Staffs", font=("Microsoft JhengHei", 13, "bold"), 
               bg="#FBF0D7", fg="#497687")
 staffPLab.place(relx=0.2, rely=0.16, anchor="center")
+
 staffNum = Label(staffPanel, text="00", font=("Microsoft JhengHei", 22, "bold"), 
               bg="#FBF0D7", fg="#497687")
 staffNum.place(relx=0.11, rely=0.38, anchor="center")
+
 StaffLink = Label(staffPanel, text="「View Staffs」", font=("Microsoft JhengHei", 10, "bold"), 
-              bg="#FBF0D7", fg="#274B58")
+              bg="#FBF0D7", fg="#274B58", cursor="hand2")
 StaffLink.place(relx=0.83, rely=0.83, anchor="center")
 StaffLink.bind("<Button-1>", lambda event: staffBtn())
+StaffLink.bind("<Enter>", txtEnter)
+StaffLink.bind("<Leave>", txtLeave)
+
 
 #Available medicines
 avlMedsPan = Frame(root, bg="#FBF0D7")
@@ -162,22 +176,26 @@ avlMedsNum = Label(avlMedsPan, text="00", font=("Microsoft JhengHei", 22, "bold"
               bg="#FBF0D7", fg="#497687")
 avlMedsNum.place(relx=0.11, rely=0.38, anchor="center")
 avlMedsLink = Label(avlMedsPan, text="「View Inventory」", font=("Microsoft JhengHei", 10, "bold"), 
-              bg="#FBF0D7", fg="#274B58")
+              bg="#FBF0D7", fg="#274B58", cursor="hand2")
 avlMedsLink.place(relx=0.83, rely=0.83, anchor="center")
 avlMedsLink.bind("<Button-1>", lambda event: invBtn())
+avlMedsLink.bind("<Enter>", txtEnter)
+avlMedsLink.bind("<Leave>", txtLeave)
 
 #Available equips
 avlEqpsPan = Frame(root, bg="#F4E7CA")
 avlEqpsPan.place(x=200, y=255, width=500, height=210)
-avlEqpsLab = Label(avlEqpsPan, text="Available Medicines", font=("Microsoft JhengHei", 13, "bold"), 
+avlEqpsLab = Label(avlEqpsPan, text="Available Equipments", font=("Microsoft JhengHei", 13, "bold"), 
               bg="#F4E7CA", fg="#497687")
 avlEqpsLab.place(relx=0.23, rely=0.16, anchor="center")
 avlEqpsNum = Label(avlEqpsPan, text="00", font=("Microsoft JhengHei", 22, "bold"), 
               bg="#F4E7CA", fg="#497687")
 avlEqpsNum.place(relx=0.12, rely=0.38, anchor="center")
 avlEqpsLink = Label(avlEqpsPan, text="「View Inventory」", font=("Microsoft JhengHei", 10, "bold"), 
-              bg="#F4E7CA", fg="#274B58")
+              bg="#F4E7CA", fg="#274B58", cursor="hand2")
 avlEqpsLink.place(relx=0.83, rely=0.83, anchor="center")
 avlEqpsLink.bind("<Button-1>", lambda event: invBtn())
+avlEqpsLink.bind("<Enter>", txtEnter)
+avlEqpsLink.bind("<Leave>", txtLeave)
 
 root.mainloop()
