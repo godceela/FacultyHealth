@@ -80,14 +80,14 @@ password_label = Label(root, text="Password", bg="#DFEEED", fg="#497687")
 password_label.config(font=("Microsoft JhengHei", 13, "bold"))
 password_label.place(relx=0.658, rely=0.45, anchor=CENTER)
 
-password_entry = Entry(root, show="•", bg="#FFFFFF", fg="#497687")
+password_entry = Entry(root, show="•", bg="#FFFFFF", fg="#497687", width=16)
 password_entry.config(font=("Microsoft JhengHei", 13),cursor="hand2")
-password_entry.place(relx=0.78, rely=0.45, anchor=CENTER)
+password_entry.place(relx=0.763, rely=0.45, anchor=CENTER)
 
 login_button = Button(root, text="Login", command=login, 
                       bg="#497687", fg="#ffffff")
 login_button.config(font=("Microsoft JhengHei", 11), cursor="hand2")
-login_button.place(relx=0.81, rely=0.58, anchor=CENTER)
+login_button.place(relx=0.8, rely=0.52, anchor=CENTER)
 
 message_label = Label(root, text="", bg="#DFEEED")
 message_label.config(font=("Microsoft JhengHei ", 11))
@@ -97,15 +97,15 @@ message_label.place(relx=0.78, rely=0.63, anchor=CENTER)
 def passVisibility():
     if password_entry['show'] == '':
         password_entry.configure(show='•')
-        btnShow.configure(text='Show password')
+        btnShow.configure(text='Show')
     else:
         password_entry.configure(show='')
-        btnShow.configure(text='Hide password')
+        btnShow.configure(text='Hide')
 
-btnShow = Button(root, text='Show password', command=passVisibility,
+btnShow = Button(root, text='Show', command=passVisibility,
                               bg='#94A2A7', fg='#ffffff')
 btnShow.config(font=('Microsoft JhengHei', 8),cursor="hand2")
-btnShow.place(relx=0.778, rely=0.49, anchor=CENTER)
+btnShow.place(relx=0.845, rely=0.449, anchor=CENTER)
 
 def reset():
     username_entry.delete(0, END)
@@ -115,7 +115,7 @@ def reset():
 btnReset = Button(root, text="Reset", command=reset, 
                       bg="#497687", fg="#ffffff")
 btnReset.config(font=("Microsoft JhengHei", 11),cursor="hand2")
-btnReset.place(relx=0.75, rely=0.58, anchor=CENTER)
+btnReset.place(relx=0.753, rely=0.52, anchor=CENTER)
 
 def open_staffLogin():
     root.withdraw() 

@@ -74,24 +74,6 @@ staff_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
 staff_label.place(relx=0.057, rely=0.4, anchor=CENTER)
 staff_label.bind("<Button-1>", lambda event: staffBtn())
 
-# prescription icon/button
-def presBtn():
-    root.withdraw() 
-    os.system('python prescription.py')
-    root.destroy() 
-
-cvPresIC = Canvas(root, width=50, height=50, highlightthickness=0) 
-cvPresIC.pack()
-imgPres = PhotoImage(file='images//prescription.png')
-cvPresIC.create_image(25, 25, image=imgPres, anchor=CENTER)
-cvPresIC.configure(background='#FBF0D7')
-cvPresIC.place(relx=0.007, rely=0.47)
-
-pres_label = Label(root, text="Prescription", bg="#FBF0D7", fg="#497687")
-pres_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-pres_label.place(relx=0.078, rely=0.5, anchor=CENTER)
-pres_label.bind("<Button-1>", lambda event: presBtn())
-
 # inventory icon/button
 def invBtn():
     root.withdraw() 
@@ -103,11 +85,11 @@ cvinventoryIC.pack()
 imgInv = PhotoImage(file='images//inventory.png')
 cvinventoryIC.create_image(25, 25, image=imgInv, anchor=CENTER)
 cvinventoryIC.configure(background='#FBF0D7') 
-cvinventoryIC.place(relx=0.007, rely=0.57)
+cvinventoryIC.place(relx=0.007, rely=0.47)
 
 inventory_label = Label(root, text="Inventory", bg="#FBF0D7", fg="#497687")
 inventory_label.config(font=("Microsoft JhengHei", 11, "bold"), cursor="hand2")
-inventory_label.place(relx=0.072, rely=0.6, anchor=CENTER)
+inventory_label.place(relx=0.078, rely=0.5, anchor=CENTER)
 inventory_label.bind("<Button-1>", lambda event: invBtn())
 
 # logout icon/button
@@ -298,10 +280,10 @@ def sensor():
     pr_entry.delete(0, END)
     bt_entry.delete(0, END)
 
-btnSensor = Button(root, text="Sensor", command=sensor, 
+btnSensor = Button(root, text="Sensors", command=sensor, 
                       bg="#b12a2a", fg="#ffffff")
 btnSensor.config(font=("Microsoft JhengHei", 11),cursor="hand2")
-btnSensor.place(relx=0.503, rely=0.91, anchor=CENTER)
+btnSensor.place(relx=0.5, rely=0.91, anchor=CENTER)
 
 #Login - Save nurse info ------------
 loginPanel = Frame(root, bg="#FBF0D7")

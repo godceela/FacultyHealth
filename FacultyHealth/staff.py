@@ -178,8 +178,8 @@ passLabel = Label(infoPanel, text="Password", font=("Microsoft JhengHei", 11, "b
                     bg="#FBF0D7", fg="#497687")
 passLabel.place(relx=0.545, rely=0.65, anchor=CENTER)
 passEntry = Entry(infoPanel, show="•", font=("Microsoft JhengHei", 11), 
-                        fg="#497687", width=32)
-passEntry.place(relx=0.773, rely=0.65, anchor=CENTER)
+                        fg="#497687", width=28)
+passEntry.place(relx=0.756, rely=0.65, anchor=CENTER)
 
 def passVisibility():
     if passEntry['show'] == '':

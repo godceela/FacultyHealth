@@ -46,7 +46,7 @@ def load():
     if progress['value'] < 100:
         txt = "Loading... " + (str(int(progress['value']))+'%')
         progress_label.config(text=txt)
-        root.after(600, load)
+        root.after(1200, load)
     else:
         openLoginAdmin()
 
